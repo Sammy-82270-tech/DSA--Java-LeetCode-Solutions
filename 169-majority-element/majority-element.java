@@ -1,8 +1,32 @@
 class Solution {
     public int majorityElement(int[] nums) {
-       Arrays.sort(nums);
+   int count = 0; 
+   int el =0;
+    for(int i = 0; i< nums.length; i++){
+        if(count == 0){
+            el = nums[i];
+            count =1;
+        }else if(nums[i] == el){
+            count++;
+        }else{
+            count--;
+        }
+    }
+    int cunt = 0;
+    for(int i = 0; i< nums.length; i++){
+        if(nums[i] == el){
+            cunt++;
+        }
+    }
+    if(cunt > (nums.length / 2)){
+        return el;
+    }
+   return -1;
+   
 
-       return(nums[nums.length/2]);
+    //    Arrays.sort(nums);
+
+    //    return(nums[nums.length/2]);
         
     }
 }
